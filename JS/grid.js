@@ -5,7 +5,7 @@ import {
     gridSize, 
     startGame, 
     stopGame
-} from "/JS/controls.js";
+} from "./JS/controls.js";
 
 const col = gridSize;
 const row = gridSize;
