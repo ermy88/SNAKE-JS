@@ -1,0 +1,63 @@
+@charset "UTF-8";
+:root {
+  --gridSize: 60;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+body h1 {
+  color: lime;
+  font-weight: bold;
+  font-size: 3vh;
+}
+body #controls #speed {
+  color: chartreuse;
+  font-weight: bold;
+}
+body #controls #speed::before {
+  content: "Sebesség: ";
+}
+body .grid5050 {
+  display: grid;
+  grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--gridSize), minmax(0, 1fr));
+  box-sizing: border-box;
+  width: 850px;
+  height: 850px;
+  gap: 1px;
+  background: #1b3a11;
+  border: 1px solid lime;
+  border-radius: 10px;
+  cursor: crosshair;
+}
+body .grid5050 .cell {
+  box-sizing: border-box;
+  border: 1px solid rgb(14, 70, 13);
+}
+
+.snake-head {
+  background-color: limegreen;
+  border-radius: 50%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  color: black;
+}
+
+.snake-body {
+  background-color: rgb(133, 216, 24);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*# sourceMappingURL=main.css.map */
