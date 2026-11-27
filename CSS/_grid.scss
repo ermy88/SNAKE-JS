@@ -1,7 +1,6 @@
 :root {
-    --gridSize: 60; // n x n grid
+    --gridSize: 40; // n x n grid
 }
-
 
 body {
     display: flex;
@@ -18,11 +17,22 @@ body {
 
     #controls {
         #speed {
+            width: 100px;
             color: chartreuse;
             font-weight: bold;
 
             &::before {
-                content: 'Sebesség: ';
+                content: 'Speed: ';
+            }
+        }
+
+        #points {
+            width: 150px;
+            color: chartreuse;
+            font-weight: bold;
+
+            &::before {
+                content: 'Points: ';
             }
         }
     }
@@ -34,16 +44,14 @@ body {
         box-sizing: border-box;
         width: 850px;
         height: 850px;
-        gap: 1px;
         background: #1b3a11;
         border: 1px solid lime;
         border-radius: 10px;
         cursor: crosshair;
 
         .cell {
-            box-sizing: border-box;
-            border: 1px solid rgb(14, 70, 13);
-            // border-radius: 1px;
+            // border: 1px solid rgb(14, 70, 13);
+            // border-radius: 50%;
         }
     }
 }

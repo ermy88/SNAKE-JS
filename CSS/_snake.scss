@@ -2,13 +2,15 @@
 .snake-head{
     background-color: limegreen;
     // border: 2px solid black;
-    border-radius: 50%;
+    border-radius: 25%;
+    
     text-align: center;
     padding: 0;
     margin: 0;
     font-size: 10px;
     color: black;
 }
-.snake-body{
-    background-color: rgb(133, 216, 24);
+.apple{
+    background-color: rgb(177, 54, 32);
+    border-radius: 50%;
 }
