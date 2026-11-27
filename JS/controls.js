@@ -1,5 +1,7 @@
-import { refreshGrid } from "./grid.js";
+import { refreshGrid, isGrid, gridSw } from "./grid.js";
+const grid = document.querySelectorAll('.grid5050 .cell');
 
+const rotation = { 0: 0, 1: 180, 2: 270, 3: 90 };
 let tickCounter = 0;
 export let gridSize = Number(getComputedStyle(document.querySelector('.grid5050')).getPropertyValue('--gridSize'));
 const centerGrid = gridSize * gridSize / 2 + gridSize / 2;
@@ -17,16 +19,24 @@ let nextDirection = 2;
 let gameLoopId = 0; // setIntervalId-t kap
 let pauseGame = true;
 
-speed.textContent = '1';
+
 
 export function drawSnake() {
     const snakeHead = document.getElementsByClassName('cell')[head];
-    snakeHead.className = 'cell snake-head';
+    if (!isGrid) {
+        snakeHead.className = 'cell snake-head grid';
+    } else {
+        snakeHead.className = 'cell snake-head';
+    }
     body.unshift(head);
 
     if (body.length == bodyLength) {
         let tail = document.getElementsByClassName('cell')[body[bodyLength - 1]];
         tail.classList.remove("snake-head");
+        if(!isGrid){
+            tail.classList.remove("grid");
+
+        }
         body.pop();
     }
 }
@@ -41,18 +51,13 @@ export function randomApple(min, max) {
 
 function gameTick() {
     direction = nextDirection;
-    let nextCell = 0;
-    switch (direction) {
-        case 0: nextCell = head - gridSize; break;
-        case 1: nextCell = head + gridSize; break;
-        case 2: nextCell = head - 1; break;
-        case 3: nextCell = head + 1; break;
-        default: alert("error: nextDirection cannot read.");
-    }
-    if (body.includes(nextCell)) {
-        gameOver();
-    }
+
     moveAndWallCheck();
+
+    if (body.includes(head)) {
+        gameOver();
+        return;
+    }
     drawSnake();
 
     tickCounter++;
@@ -62,7 +67,7 @@ function gameTick() {
         appleBonus += 50;
     }
     points = Math.round(tickCounter / 10) + appleBonus;
-    pointsEl.textContent = points;
+    pointsEl.textContent = `Points: ${points}`;
 }
 export function startGame() {
     pauseGame = false;
@@ -84,7 +89,7 @@ export function stopGame() {
     gameLoopId = 0;
     head = centerGrid;
     tickCounter = 0;
-    pointsEl.textContent = 0;
+    pointsEl.textContent = `Points: ${points}`;
     points = 0;
     body.length = 0;
     bodyLength = 7;
@@ -143,32 +148,31 @@ export function speedControls() {
             (clk >= 85) ? clk = 85 : clk += 5;
         }
         switch (clk) {
-            case 80: speed.textContent = '2';
+            case 80: speed.textContent = 'Level 2';
                 break;
-            case 75: speed.textContent = '3';
+            case 75: speed.textContent = 'Level 3';
                 break;
-            case 70: speed.textContent = '4';
+            case 70: speed.textContent = 'Level 4';
                 break;
-            case 65: speed.textContent = '5';
+            case 65: speed.textContent = 'Level 5';
                 break;
-            case 60: speed.textContent = '6';
+            case 60: speed.textContent = 'Level 6';
                 break;
-            case 55: speed.textContent = '7';
+            case 55: speed.textContent = 'Level 7';
                 break;
-            case 50: speed.textContent = '8';
+            case 50: speed.textContent = 'Level 8';
                 break;
-            case 45: speed.textContent = '9';
+            case 45: speed.textContent = 'Level 9';
                 break;
-            case 40: speed.textContent = '10';
+            case 40: speed.textContent = 'Level 10';
                 break;
-            default: speed.textContent = '1';
+            default: speed.textContent = 'Level 1';
         }
         togglePause();
         togglePause();  // sebesség frissítése
     });
 }
 export function changeBodyLength() {
-    // bodyLength = Number(bodyLength);
     document.addEventListener('keydown', (event) => {
         // console.log(event);
         if (event.key === "PageUp") {
@@ -181,8 +185,7 @@ export function changeBodyLength() {
             body.pop();
         }
     });
-} 
-
+}
 
 function gameOver() {
     alert(`Game Over! You got ${pointsEl.textContent} points. Congratulation! `);

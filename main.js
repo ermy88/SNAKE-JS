@@ -9,6 +9,8 @@ import {
 } from "./JS/controls.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    document.addEventListener('contextmenu', (e) => {e.preventDefault()})
   
     renderGrid();
     eventControls();
@@ -17,6 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     randomApple(1, gridSize);
     
     //* FEATURES
-    changeBodyLength();
+    changeBodyLength(); // with PgUp/PgDn
 
 });

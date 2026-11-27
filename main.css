@@ -1,62 +1,134 @@
 :root {
   --gridSize: 40;
+  --borderColor: #86af16;
+  --radius: 30px;
+  --borderwidth: 5px;
 }
 
 body {
+  font-family: "snakeFont";
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #000000;
+  background: rgba(63, 48, 15, 0.582);
+  height: 100vh;
+  padding: 5px;
 }
-body h1 {
-  color: lime;
-  font-weight: bold;
-  font-size: 3vh;
-}
-body #controls #speed {
-  width: 100px;
-  color: chartreuse;
-  font-weight: bold;
-}
-body #controls #speed::before {
-  content: "Speed: ";
-}
-body #controls #points {
-  width: 150px;
-  color: chartreuse;
-  font-weight: bold;
-}
-body #controls #points::before {
-  content: "Points: ";
-}
-body .grid5050 {
-  display: grid;
-  grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
-  grid-template-rows: repeat(var(--gridSize), minmax(0, 1fr));
-  box-sizing: border-box;
+body .background {
+  background-image: url("./png/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 850px;
   height: 850px;
-  background: #1b3a11;
-  border: 1px solid lime;
-  border-radius: 10px;
+  border: var(--borderwidth) solid var(--borderColor);
+  border-bottom: 2px solid var(--borderColor);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+body .background h1 {
+  padding: 0px 0px;
+  margin: 0 auto;
+  color: rgba(255, 174, 0, 0.753);
+  background: rgba(63, 48, 15, 0.8);
+  font-weight: bold;
+  font-size: 6vh;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 3px -1px 1px rgb(170, 255, 0);
+  letter-spacing: 10px;
+  width: 50%;
+  border-radius: 50% 50% 0 0;
+}
+body .background .grid5050 {
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--gridSize), minmax(0, 1fr));
+  width: 710px;
+  height: 710px;
+  background: rgba(63, 48, 15, 0.4);
+  border: 10px solid rgba(49, 34, 2, 0.5);
+  border-radius: 25px;
   cursor: crosshair;
 }
+body .background .grid5050 .cell.grid {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+body #controls {
+  display: flex;
+  justify-content: center;
+  width: 850px;
+  border: var(--borderwidth) solid var(--borderColor);
+  border-top: 2px solid var(--borderColor);
+  border-radius: 0 0 var(--radius) var(--radius);
+  background-color: var(--borderColor);
+}
+body #controls button {
+  font-size: 4vh;
+  letter-spacing: 5px;
+  font-weight: 900;
+  color: rgb(202, 143, 16);
+  background: rgba(63, 48, 15, 0.897);
+  text-shadow: 2px 0px 1px rgb(22, 22, 22);
+  padding: 15px 15px;
+  border: 2px solid var(--borderColor);
+}
+body #controls #start {
+  width: 20%;
+  border-radius: 0 30% 10px 25px;
+}
+body #controls #speed {
+  width: 30%;
+  cursor: default;
+  border-radius: 30% 30% 10px 10px;
+}
+body #controls #grid {
+  border-radius: 30% 30% 10px 10px;
+}
+body #controls #points {
+  width: 40%;
+  cursor: default;
+  border-radius: 30% 30% 10px 10px;
+}
+body #controls #reset {
+  width: 20%;
+  border-radius: 30% 0 25px 10px;
+}
+
 .snake-head {
-  background-color: limegreen;
-  border-radius: 25%;
+  border: 1px solid rgb(53, 37, 19) !important;
+  border-radius: 50%;
   text-align: center;
-  padding: 0;
-  margin: 0;
   font-size: 10px;
   color: black;
+  background-image: url("./png/snake_skin.png");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  scale: 1.2;
+  box-shadow: 3px 6px 5px #292929;
 }
 
 .apple {
-  background-color: rgb(177, 54, 32);
+  border: 1px solid rgb(251, 255, 0);
   border-radius: 50%;
+  background-image: url("./png/apple.png");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
+  scale: 1.2;
+  box-shadow: 3px 6px 5px #292929;
 }
 
+@font-face {
+  font-family: "snakeFont";
+  src: url("./fonts/snakeFont.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   box-sizing: border-box;
   margin: 0;
