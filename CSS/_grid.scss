@@ -1,6 +1,6 @@
 
 :root {
-    --gridSize: 40; // n x n grid
+    --gridSize: 50; // n x n grid
     --borderColor: #86af16;
     --radius: 30px;
     --borderwidth: 5px;
@@ -86,7 +86,7 @@ body {
         }
 
         #speed {
-            width: 30%;
+            width: 29%;
             cursor: default;
             border-radius: 30% 30% 10px 10px;
         }
@@ -95,7 +95,7 @@ body {
         }
         
         #points {
-            width: 40%;
+            width: 41%;
             cursor: default;
             border-radius: 30% 30% 10px 10px;
         }

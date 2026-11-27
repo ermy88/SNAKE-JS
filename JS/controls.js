@@ -4,6 +4,7 @@ const grid = document.querySelectorAll('.grid5050 .cell');
 const rotation = { 0: 0, 1: 180, 2: 270, 3: 90 };
 let tickCounter = 0;
 export let gridSize = Number(getComputedStyle(document.querySelector('.grid5050')).getPropertyValue('--gridSize'));
+console.log(gridSize);
 const centerGrid = gridSize * gridSize / 2 + gridSize / 2;
 export let head = centerGrid; // x,y -> (0,0) center, a fej kezdőpozíciója a grid-en
 const body = [];

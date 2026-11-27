@@ -1,5 +1,12 @@
+@font-face {
+  font-family: "snakeFont";
+  src: url("./fonts/snakeFont.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
-  --gridSize: 40;
+  --gridSize: 50;
   --borderColor: #86af16;
   --radius: 30px;
   --borderwidth: 5px;
@@ -78,7 +85,7 @@ body #controls #start {
   border-radius: 0 30% 10px 25px;
 }
 body #controls #speed {
-  width: 30%;
+  width: 29%;
   cursor: default;
   border-radius: 30% 30% 10px 10px;
 }
@@ -86,7 +93,7 @@ body #controls #grid {
   border-radius: 30% 30% 10px 10px;
 }
 body #controls #points {
-  width: 40%;
+  width: 41%;
   cursor: default;
   border-radius: 30% 30% 10px 10px;
 }
@@ -106,7 +113,7 @@ body #controls #reset {
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  scale: 1.2;
+  scale: 1.5;
   box-shadow: 3px 6px 5px #292929;
 }
 
@@ -118,17 +125,10 @@ body #controls #reset {
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  scale: 1.2;
+  scale: 1.8;
   box-shadow: 3px 6px 5px #292929;
 }
 
-@font-face {
-  font-family: "snakeFont";
-  src: url("./fonts/snakeFont.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 * {
   box-sizing: border-box;
   margin: 0;
