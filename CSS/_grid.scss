@@ -1,6 +1,6 @@
 
 :root {
-    --gridSize: 50; // n x n grid
+    --gridSize: 35; // n x n grid
     --borderColor: #86af16;
     --radius: 30px;
     --borderwidth: 5px;
@@ -28,7 +28,7 @@ body {
 
 
         h1 {
-            padding: 0px 0px;
+            padding: 0;
             margin: 0 auto;
             color: rgba(255, 174, 0, 0.753);
             background: rgba(63, 48, 15, 0.8);
@@ -47,15 +47,14 @@ body {
             margin: 0 auto;
             grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
             grid-template-rows: repeat(var(--gridSize), minmax(0, 1fr));
-            width: 710px;
-            height: 710px;
-            background: rgba(63, 48, 15, 0.4);
-            border: 10px solid rgba(49, 34, 2, 0.5);
-            border-radius: 25px;
+            width: 700px;
+            height: 700px;
+            background: rgba(63, 48, 15, 0.1);
+            // border: 20px solid rgba(49, 34, 2, 0);
+            border-radius: 6%;
             cursor: crosshair;
 
-            .cell.grid {
-                border: 1px solid rgba(255, 255, 255, 0.25);
+            .cell {
             }
         }
     }
@@ -81,28 +80,30 @@ body {
         }
 
         #start {
-            width: 20%;
+            padding-bottom: 25px;
+            width: 15%;
             border-radius: 0 30% 10px 25px;
         }
 
         #speed {
-            width: 29%;
+            width: 25%;
             cursor: default;
-            border-radius: 30% 30% 10px 10px;
+            border-radius: 17% 17% 10px 10px;
         }
+
         #grid {
-            border-radius: 30% 30% 10px 10px;
+            border-radius: 17% 17% 10px 10px;
         }
         
         #points {
-            width: 41%;
+            width: 45%;
             cursor: default;
-            border-radius: 30% 30% 10px 10px;
+            border-radius: 17% 0 25px 10px;
         }
-
+        
         #reset {
             width: 20%;
-            border-radius: 30% 0 25px 10px;
+            border-radius: 17% 17% 10px 10px;
         }
     }
 }

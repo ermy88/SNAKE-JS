@@ -24,17 +24,14 @@ let pauseGame = true;
 
 export function drawSnake() {
     const snakeHead = document.getElementsByClassName('cell')[head];
-    if (!isGrid) {
-        snakeHead.className = 'cell snake-head grid';
-    } else {
-        snakeHead.className = 'cell snake-head';
-    }
+    snakeHead.className = 'cell snake-head';
+
     body.unshift(head);
 
     if (body.length == bodyLength) {
         let tail = document.getElementsByClassName('cell')[body[bodyLength - 1]];
         tail.classList.remove("snake-head");
-        if(!isGrid){
+        if (!isGrid) {
             tail.classList.remove("grid");
 
         }
@@ -43,14 +40,20 @@ export function drawSnake() {
 }
 
 export function randomApple(min, max) {
-    const apple = Math.floor(Math.random() * max * max) + min;
+    let apple = 0;
+
+    do {
+        apple = Math.floor(Math.random() * max * max) + min;
+
+        expApple = apple;
+    } while (body.includes(expApple));
     let appleEl = document.getElementsByClassName('cell')[apple];
     appleEl.className = 'cell apple';
-    expApple = apple;
 }
 
 
 function gameTick() {
+    document.title = `🐍 SNAKE ${points} pont`;
     direction = nextDirection;
 
     moveAndWallCheck();
@@ -62,7 +65,7 @@ function gameTick() {
     drawSnake();
 
     tickCounter++;
-    if (expApple === head || body.includes(expApple)) {
+    if (expApple === head) {
         bodyLength++;
         randomApple(1, gridSize);
         appleBonus += 50;
@@ -189,6 +192,7 @@ export function changeBodyLength() {
 }
 
 function gameOver() {
+    document.title = ` GAME OVER ${points} pont`;
     alert(`Game Over! You got ${pointsEl.textContent} points. Congratulation! `);
     stopGame();
 }

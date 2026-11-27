@@ -13,7 +13,7 @@ const grid = document.getElementsByClassName('grid5050')[0];
 export let isGrid = false;
 
 export function renderGrid() {
-    
+
     for (let i = 1; i <= col * row; i++) {
         const cell = document.createElement('div');
         cell.className = 'cell';
@@ -29,16 +29,24 @@ export function refreshGrid() {
     randomApple(1, gridSize);
 }
 
-export function gridSw(){
-        isGrid = !isGrid;
-        const cells = grid.querySelectorAll('div');
+export function gridSw() {
+    isGrid = !isGrid;
+    const cells = grid.querySelectorAll('div');
+    
+    if (isGrid) {
         cells.forEach((cell) => {
-            cell.classList.toggle('grid');
+            cell.style.border = "1px solid rgba(255, 255, 255, 0.25)";
         });
+    } else{
+        cells.forEach((cell) => {
+            cell.style.border = "none";
+        });
+
     }
+}
 // ----Buttons-----
 const startBtn = document.getElementsByTagName('button')[0];
-const stopBtn = document.getElementsByTagName('button')[4];
+const stopBtn = document.getElementsByTagName('button')[3];
 startBtn.addEventListener('click', () => {
     startGame(clk);
 });
@@ -47,10 +55,10 @@ stopBtn.addEventListener('click', () => {
     stopGame();
     refreshGrid();
 });
-console.log(gridSwitch);
 gridSwitch.addEventListener('click', () => {
+    // console.log(gridSwitch);
     gridSw();
-    
+
 });
 
 

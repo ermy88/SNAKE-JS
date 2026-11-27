@@ -7,7 +7,7 @@
   text-decoration: none;
 }
 :root {
-  --gridSize: 50;
+  --gridSize: 35;
   --borderColor: #86af16;
   --radius: 30px;
   --borderwidth: 5px;
@@ -34,7 +34,7 @@ body .background {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 body .background h1 {
-  padding: 0px 0px;
+  padding: 0;
   margin: 0 auto;
   color: rgba(255, 174, 0, 0.753);
   background: rgba(63, 48, 15, 0.8);
@@ -52,15 +52,11 @@ body .background .grid5050 {
   margin: 0 auto;
   grid-template-columns: repeat(var(--gridSize), minmax(0, 1fr));
   grid-template-rows: repeat(var(--gridSize), minmax(0, 1fr));
-  width: 710px;
-  height: 710px;
-  background: rgba(63, 48, 15, 0.4);
-  border: 10px solid rgba(49, 34, 2, 0.5);
-  border-radius: 25px;
+  width: 700px;
+  height: 700px;
+  background: rgba(63, 48, 15, 0.1);
+  border-radius: 6%;
   cursor: crosshair;
-}
-body .background .grid5050 .cell.grid {
-  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 body #controls {
   display: flex;
@@ -82,25 +78,26 @@ body #controls button {
   border: 2px solid var(--borderColor);
 }
 body #controls #start {
-  width: 20%;
+  padding-bottom: 25px;
+  width: 15%;
   border-radius: 0 30% 10px 25px;
 }
 body #controls #speed {
-  width: 29%;
+  width: 25%;
   cursor: default;
-  border-radius: 30% 30% 10px 10px;
+  border-radius: 17% 17% 10px 10px;
 }
 body #controls #grid {
-  border-radius: 30% 30% 10px 10px;
+  border-radius: 17% 17% 10px 10px;
 }
 body #controls #points {
-  width: 41%;
+  width: 45%;
   cursor: default;
-  border-radius: 30% 30% 10px 10px;
+  border-radius: 17% 0 25px 10px;
 }
 body #controls #reset {
   width: 20%;
-  border-radius: 30% 0 25px 10px;
+  border-radius: 17% 17% 10px 10px;
 }
 
 .snake-head {
@@ -114,19 +111,19 @@ body #controls #reset {
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  scale: 1.5;
+  scale: 1.4;
   box-shadow: 3px 6px 5px #292929;
 }
 
 .apple {
-  border: 1px solid rgb(251, 255, 0);
+  border: 1px solid rgb(167, 56, 56);
   border-radius: 50%;
   background-image: url("./png/apple.png");
   background-size: cover;
   background-position-x: center;
   background-position-y: bottom;
   background-repeat: no-repeat;
-  scale: 1.8;
+  scale: 1.6;
   box-shadow: 3px 6px 5px #292929;
 }
 
